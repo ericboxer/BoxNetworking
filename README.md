@@ -1,5 +1,5 @@
 # BoxNetworking
-A wrapper class for easily working with CocoaAsync
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
 
 ### The Challange
 [CococaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) is a fantastic framework, but I found myself writing the same code over and over again.
