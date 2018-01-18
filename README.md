@@ -1,5 +1,5 @@
 # BoxNetworking
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()[![GitHub top language](https://img.shields.io/github/languages/top/badges/shields.svg)]()
 ---
 
 ### The Challange
