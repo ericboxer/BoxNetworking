@@ -54,10 +54,6 @@
 		B4FCAD3B200EA3B3009871D7 = {
 			isa = PBXGroup;
 			children = (
-				B4EB3C8E200FFF3200DB94E3 /* Structs.swift */,
-				B4FCAD8B200EB488009871D7 /* CocoaAsyncSocket.framework.dSYM */,
-				B4FCAD50200EA3C3009871D7 /* Networking.swift */,
-				B4FCADAF200F6D77009871D7 /* BoxNetworkingHelper.swift */,
 				B4FCAD47200EA3B3009871D7 /* BoxNetworking */,
 				B4FCAD46200EA3B3009871D7 /* Products */,
 				B4FCAD55200EA5FD009871D7 /* Frameworks */,
@@ -75,6 +71,9 @@
 		B4FCAD47200EA3B3009871D7 /* BoxNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				B4EB3C8E200FFF3200DB94E3 /* Structs.swift */,
+				B4FCAD50200EA3C3009871D7 /* Networking.swift */,
+				B4FCADAF200F6D77009871D7 /* BoxNetworkingHelper.swift */,
 				B4FCAD48200EA3B3009871D7 /* BoxNetworking.h */,
 				B4FCAD49200EA3B3009871D7 /* Info.plist */,
 			);
@@ -84,6 +83,7 @@
 		B4FCAD55200EA5FD009871D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4FCAD8B200EB488009871D7 /* CocoaAsyncSocket.framework.dSYM */,
 				B4FCAD89200EB473009871D7 /* CocoaAsyncSocket.framework */,
 			);
 			name = Frameworks;
