@@ -25,7 +25,7 @@ public class BoxNetworkingUDP: NSObject, GCDAsyncUdpSocketDelegate {
     var socketQueue: DispatchQueue
     public var boxNetworkingUDPDelegate: BoxNetworkingUDPDelegate?
     
-    public init(destinationIPAddress ipAddress:String, listenPort: UInt16, soucePort sendPort: UInt16, networkInterface: String = "" , delegateQueue: String = "socketQueue"){
+    public init(destinationIPAddress ipAddress:String, listenPort: UInt16, sourcePort sendPort: UInt16, networkInterface: String = "" , delegateQueue: String = "socketQueue"){
         self.listenIpAddress = ipAddress
         self.networkInterface = networkInterface
         self.listenPort = listenPort
