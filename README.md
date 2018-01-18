@@ -1,5 +1,6 @@
 # BoxNetworking
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+---
 
 ### The Challange
 [CococaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) is a fantastic framework, but I found myself writing the same code over and over again.
