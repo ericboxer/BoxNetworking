@@ -8,7 +8,7 @@ I made it a bit easier for myself by creating a helper framework with a few adde
 ### Usage
 #### Simple initialization
 ```swift
-let socket = BoxNetworkingUDP(destinationIPAddress: "10.0.1.100", listenPort: 5005, soucePort: 5006)
+let socket = BoxNetworkingUDP(destinationIPAddress: "10.0.1.100", listenPort: 5005, sourcePort: 5006)
 ```
 
 #### Simple sending of Data and String types
