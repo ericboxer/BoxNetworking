@@ -52,8 +52,8 @@ public class BoxNetworkingUDP: NSObject, GCDAsyncUdpSocketDelegate {
     // MARK: Receiving Data
     // When we receive a packet....
     public func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
+
         boxNetworkingUDPDelegate?.receiveData(data: data, address: address)
-        print(data)
     }
 
     // MARK: Sending Data
@@ -72,7 +72,6 @@ public class BoxNetworkingUDP: NSObject, GCDAsyncUdpSocketDelegate {
      -parameter message: Data of what you want to send
      */
     public func sendUDPData(message: Data) {
-        
         socket?.send(message, toHost: self.listenIpAddress, port: self.sendPort, withTimeout: 4, tag: 0)
     }
     
