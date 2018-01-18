@@ -49,6 +49,10 @@ public class BoxNetworkingHelpers {
         return interfaces
     }
     
+    public static func dataToString(data: Data) -> String {
+        return String(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!).removeNullCharacters()
+    }
+    
 }
 
 

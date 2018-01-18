@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B47F8D2720103EFC00ED439D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8D2620103EFC00ED439D /* Extensions.swift */; };
 		B4EB3C8F200FFF3200DB94E3 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB3C8E200FFF3200DB94E3 /* Structs.swift */; };
 		B4FCAD4A200EA3B3009871D7 /* BoxNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = B4FCAD48200EA3B3009871D7 /* BoxNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4FCAD51200EA3C3009871D7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCAD50200EA3C3009871D7 /* Networking.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B47F8D2620103EFC00ED439D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B4EB3C8E200FFF3200DB94E3 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		B4FCAD45200EA3B3009871D7 /* BoxNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoxNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FCAD48200EA3B3009871D7 /* BoxNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxNetworking.h; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				B4EB3C8E200FFF3200DB94E3 /* Structs.swift */,
+				B47F8D2620103EFC00ED439D /* Extensions.swift */,
 				B4FCAD50200EA3C3009871D7 /* Networking.swift */,
 				B4FCADAF200F6D77009871D7 /* BoxNetworkingHelper.swift */,
 				B4FCAD48200EA3B3009871D7 /* BoxNetworking.h */,
@@ -173,6 +176,7 @@
 				B4EB3C8F200FFF3200DB94E3 /* Structs.swift in Sources */,
 				B4FCAD51200EA3C3009871D7 /* Networking.swift in Sources */,
 				B4FCADB0200F6D77009871D7 /* BoxNetworkingHelper.swift in Sources */,
+				B47F8D2720103EFC00ED439D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
