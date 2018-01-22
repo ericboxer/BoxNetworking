@@ -39,11 +39,11 @@ public class BoxNetworkingUDP: NSObject, GCDAsyncUdpSocketDelegate {
         // SOCKETS!!!
         self.socket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
         
-        if self.networkInterface == "" {
+//        if self.networkInterface == "" {
             let _ = try? self.socket?.bind(toPort: self.listenPort)
-        } else {
-            let _ = try? self.socket?.bind(toPort: self.listenPort, interface: self.networkInterface)
-        }
+//        } else {
+//            let _ = try? self.socket?.bind(toPort: self.listenPort, interface: self.networkInterface)
+//        }
         let _ = try? self.socket?.beginReceiving()
         
         
