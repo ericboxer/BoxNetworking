@@ -29,7 +29,7 @@ func receiveData( data:Data, address: Data) {
 BoxNetworkingHelper.dataToString(data: data)
 ```
 
-### Instalation
+### Installation
 #### [Carthage.](https://github.com/Carthage/Carthage)
 ```
 github "ericboxer/BoxNetworking" "master"

@@ -25,26 +25,34 @@ public class BoxNetworkingUDP: NSObject, GCDAsyncUdpSocketDelegate {
     var socketQueue: DispatchQueue
     public var boxNetworkingUDPDelegate: BoxNetworkingUDPDelegate?
     
-    public init(destinationIPAddress ipAddress:String, listenPort: UInt16, sourcePort sendPort: UInt16, networkInterface: String = "" , delegateQueue: String = "socketQueue"){
+    public init(destinationIPAddress ipAddress:String, listenPort: UInt16, sourcePort sendPort: UInt16, networkInterface: String = "" ){
         self.listenIpAddress = ipAddress
         self.networkInterface = networkInterface
         self.listenPort = listenPort
         self.sendPort = sendPort
         self.returnData = nil
-        self.socketQueue = DispatchQueue(label: delegateQueue, qos: DispatchQoS.background, attributes: DispatchQueue.Attributes.concurrent, target: nil)
+        self.socketQueue = DispatchQueue.main
         
         
         super.init()
         
         // SOCKETS!!!
-        self.socket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
+        self.socket = GCDAsyncUdpSocket(delegate: self, delegateQueue: self.socketQueue)
         
-//        if self.networkInterface == "" {
-            let _ = try? self.socket?.bind(toPort: self.listenPort)
-//        } else {
-//            let _ = try? self.socket?.bind(toPort: self.listenPort, interface: self.networkInterface)
-//        }
-        let _ = try? self.socket?.beginReceiving()
+        do {
+            if self.networkInterface != "" {
+                try self.socket?.bind(toPort: self.listenPort, interface: self.networkInterface)
+            } else {
+                try self.socket?.bind(toPort: self.listenPort)
+            }
+        } catch let error {
+            print(error)
+        }
+        do {
+            try  self.socket?.beginReceiving()
+        } catch let error {
+            print (error)
+        }
         
         
     }

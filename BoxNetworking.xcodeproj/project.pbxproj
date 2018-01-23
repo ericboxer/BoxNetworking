@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		B47F8D2720103EFC00ED439D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8D2620103EFC00ED439D /* Extensions.swift */; };
+		B4831BA32017CE93009D129F /* iOS_BoxNetowrking.h in Headers */ = {isa = PBXBuildFile; fileRef = B4831BA12017CE93009D129F /* iOS_BoxNetowrking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4831BA82017CEA2009D129F /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4831BA72017CEA2009D129F /* CocoaAsyncSocket.framework */; };
+		B4831BAB2017CEB6009D129F /* CocoaAsyncSocket.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = B4831BAA2017CEB6009D129F /* CocoaAsyncSocket.framework.dSYM */; };
+		B4831BAC2017CECE009D129F /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB3C8E200FFF3200DB94E3 /* Structs.swift */; };
+		B4831BAD2017CECE009D129F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8D2620103EFC00ED439D /* Extensions.swift */; };
+		B4831BAE2017CECE009D129F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCAD50200EA3C3009871D7 /* Networking.swift */; };
+		B4831BAF2017CECE009D129F /* BoxNetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCADAF200F6D77009871D7 /* BoxNetworkingHelper.swift */; };
 		B4EB3C8F200FFF3200DB94E3 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB3C8E200FFF3200DB94E3 /* Structs.swift */; };
 		B4FCAD4A200EA3B3009871D7 /* BoxNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = B4FCAD48200EA3B3009871D7 /* BoxNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4FCAD51200EA3C3009871D7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCAD50200EA3C3009871D7 /* Networking.swift */; };
@@ -17,6 +24,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B4831BA92017CEA7009D129F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				B4831BAB2017CEB6009D129F /* CocoaAsyncSocket.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4FCAD52200EA57B009871D7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -31,6 +48,11 @@
 
 /* Begin PBXFileReference section */
 		B47F8D2620103EFC00ED439D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B4831B9F2017CE93009D129F /* BoxNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoxNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4831BA12017CE93009D129F /* iOS_BoxNetowrking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOS_BoxNetowrking.h; sourceTree = "<group>"; };
+		B4831BA22017CE93009D129F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4831BA72017CEA2009D129F /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		B4831BAA2017CEB6009D129F /* CocoaAsyncSocket.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = CocoaAsyncSocket.framework.dSYM; sourceTree = "<group>"; };
 		B4EB3C8E200FFF3200DB94E3 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		B4FCAD45200EA3B3009871D7 /* BoxNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoxNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FCAD48200EA3B3009871D7 /* BoxNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxNetworking.h; sourceTree = "<group>"; };
@@ -42,6 +64,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B4831B9B2017CE93009D129F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4831BA82017CEA2009D129F /* CocoaAsyncSocket.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4FCAD41200EA3B3009871D7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,10 +83,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4831BA02017CE93009D129F /* iOS BoxNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				B4831BA12017CE93009D129F /* iOS_BoxNetowrking.h */,
+				B4831BA22017CE93009D129F /* Info.plist */,
+			);
+			path = "iOS BoxNetworking";
+			sourceTree = "<group>";
+		};
+		B4831BB02017CFA3009D129F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B4FCAD49200EA3B3009871D7 /* Info.plist */,
+				B4EB3C8E200FFF3200DB94E3 /* Structs.swift */,
+				B47F8D2620103EFC00ED439D /* Extensions.swift */,
+				B4FCAD50200EA3C3009871D7 /* Networking.swift */,
+				B4FCADAF200F6D77009871D7 /* BoxNetworkingHelper.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		B4FCAD3B200EA3B3009871D7 = {
 			isa = PBXGroup;
 			children = (
+				B4831BB02017CFA3009D129F /* Source */,
 				B4FCAD47200EA3B3009871D7 /* BoxNetworking */,
+				B4831BA02017CE93009D129F /* iOS BoxNetworking */,
 				B4FCAD46200EA3B3009871D7 /* Products */,
 				B4FCAD55200EA5FD009871D7 /* Frameworks */,
 			);
@@ -66,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				B4FCAD45200EA3B3009871D7 /* BoxNetworking.framework */,
+				B4831B9F2017CE93009D129F /* BoxNetworking.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,12 +127,7 @@
 		B4FCAD47200EA3B3009871D7 /* BoxNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				B4EB3C8E200FFF3200DB94E3 /* Structs.swift */,
-				B47F8D2620103EFC00ED439D /* Extensions.swift */,
-				B4FCAD50200EA3C3009871D7 /* Networking.swift */,
-				B4FCADAF200F6D77009871D7 /* BoxNetworkingHelper.swift */,
 				B4FCAD48200EA3B3009871D7 /* BoxNetworking.h */,
-				B4FCAD49200EA3B3009871D7 /* Info.plist */,
 			);
 			path = BoxNetworking;
 			sourceTree = "<group>";
@@ -86,6 +135,8 @@
 		B4FCAD55200EA5FD009871D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4831BAA2017CEB6009D129F /* CocoaAsyncSocket.framework.dSYM */,
+				B4831BA72017CEA2009D129F /* CocoaAsyncSocket.framework */,
 				B4FCAD8B200EB488009871D7 /* CocoaAsyncSocket.framework.dSYM */,
 				B4FCAD89200EB473009871D7 /* CocoaAsyncSocket.framework */,
 			);
@@ -95,6 +146,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		B4831B9C2017CE93009D129F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4831BA32017CE93009D129F /* iOS_BoxNetowrking.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4FCAD42200EA3B3009871D7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,6 +165,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		B4831B9E2017CE93009D129F /* BoxNetworking iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4831BA42017CE93009D129F /* Build configuration list for PBXNativeTarget "BoxNetworking iOS" */;
+			buildPhases = (
+				B4831B9A2017CE93009D129F /* Sources */,
+				B4831B9B2017CE93009D129F /* Frameworks */,
+				B4831B9C2017CE93009D129F /* Headers */,
+				B4831B9D2017CE93009D129F /* Resources */,
+				B4831BA92017CEA7009D129F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BoxNetworking iOS";
+			productName = "iOS BoxNetowrking";
+			productReference = B4831B9F2017CE93009D129F /* BoxNetworking.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		B4FCAD44200EA3B3009871D7 /* BoxNetworking */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4FCAD4D200EA3B3009871D7 /* Build configuration list for PBXNativeTarget "BoxNetworking" */;
@@ -134,6 +212,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Eric Boxer";
 				TargetAttributes = {
+					B4831B9E2017CE93009D129F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					B4FCAD44200EA3B3009871D7 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -154,11 +236,19 @@
 			projectRoot = "";
 			targets = (
 				B4FCAD44200EA3B3009871D7 /* BoxNetworking */,
+				B4831B9E2017CE93009D129F /* BoxNetworking iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B4831B9D2017CE93009D129F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4FCAD43200EA3B3009871D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,6 +259,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B4831B9A2017CE93009D129F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4831BAE2017CECE009D129F /* Networking.swift in Sources */,
+				B4831BAF2017CECE009D129F /* BoxNetworkingHelper.swift in Sources */,
+				B4831BAC2017CECE009D129F /* Structs.swift in Sources */,
+				B4831BAD2017CECE009D129F /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4FCAD40200EA3B3009871D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +284,59 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		B4831BA52017CE93009D129F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.disney.wdi.iOS-BoxNetowrking";
+				PRODUCT_NAME = BoxNetworking;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B4831BA62017CE93009D129F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.disney.wdi.iOS-BoxNetowrking";
+				PRODUCT_NAME = BoxNetworking;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		B4FCAD4B200EA3B3009871D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -312,7 +466,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = BoxNetworking/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -342,7 +496,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = BoxNetworking/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -357,6 +511,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B4831BA42017CE93009D129F /* Build configuration list for PBXNativeTarget "BoxNetworking iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4831BA52017CE93009D129F /* Debug */,
+				B4831BA62017CE93009D129F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B4FCAD3F200EA3B3009871D7 /* Build configuration list for PBXProject "BoxNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

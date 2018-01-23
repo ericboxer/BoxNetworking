@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4FCAD44200EA3B3009871D7"
-               BuildableName = "BoxNetworking.framework"
-               BlueprintName = "BoxNetworking"
+               BlueprintIdentifier = "B4831B9E2017CE93009D129F"
+               BuildableName = "BoxNetworking_iOS.framework"
+               BlueprintName = "BoxNetworking iOS"
                ReferencedContainer = "container:BoxNetworking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,15 +30,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4FCAD44200EA3B3009871D7"
-            BuildableName = "BoxNetworking.framework"
-            BlueprintName = "BoxNetworking"
-            ReferencedContainer = "container:BoxNetworking.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -56,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4FCAD44200EA3B3009871D7"
-            BuildableName = "BoxNetworking.framework"
-            BlueprintName = "BoxNetworking"
+            BlueprintIdentifier = "B4831B9E2017CE93009D129F"
+            BuildableName = "BoxNetworking_iOS.framework"
+            BlueprintName = "BoxNetworking iOS"
             ReferencedContainer = "container:BoxNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -74,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4FCAD44200EA3B3009871D7"
-            BuildableName = "BoxNetworking.framework"
-            BlueprintName = "BoxNetworking"
+            BlueprintIdentifier = "B4831B9E2017CE93009D129F"
+            BuildableName = "BoxNetworking_iOS.framework"
+            BlueprintName = "BoxNetworking iOS"
             ReferencedContainer = "container:BoxNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
