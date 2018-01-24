@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B4831B9E2017CE93009D129F"
-               BuildableName = "BoxNetworking_iOS.framework"
+               BuildableName = "BoxNetworking.framework"
                BlueprintName = "BoxNetworking iOS"
                ReferencedContainer = "container:BoxNetworking.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B4831B9E2017CE93009D129F"
-            BuildableName = "BoxNetworking_iOS.framework"
+            BuildableName = "BoxNetworking.framework"
             BlueprintName = "BoxNetworking iOS"
             ReferencedContainer = "container:BoxNetworking.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B4831B9E2017CE93009D129F"
-            BuildableName = "BoxNetworking_iOS.framework"
+            BuildableName = "BoxNetworking.framework"
             BlueprintName = "BoxNetworking iOS"
             ReferencedContainer = "container:BoxNetworking.xcodeproj">
          </BuildableReference>
