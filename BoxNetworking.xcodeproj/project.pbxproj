@@ -50,7 +50,6 @@
 		B47F8D2620103EFC00ED439D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B4831B9F2017CE93009D129F /* BoxNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoxNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4831BA12017CE93009D129F /* iOS_BoxNetowrking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOS_BoxNetowrking.h; sourceTree = "<group>"; };
-		B4831BA22017CE93009D129F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4831BA72017CEA2009D129F /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		B4831BAA2017CEB6009D129F /* CocoaAsyncSocket.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = CocoaAsyncSocket.framework.dSYM; sourceTree = "<group>"; };
 		B4EB3C8E200FFF3200DB94E3 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
@@ -87,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				B4831BA12017CE93009D129F /* iOS_BoxNetowrking.h */,
-				B4831BA22017CE93009D129F /* Info.plist */,
 			);
 			path = "iOS BoxNetworking";
 			sourceTree = "<group>";
