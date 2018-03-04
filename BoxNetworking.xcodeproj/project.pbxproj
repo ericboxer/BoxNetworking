@@ -18,7 +18,6 @@
 		B4EB3C8F200FFF3200DB94E3 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EB3C8E200FFF3200DB94E3 /* Structs.swift */; };
 		B4FCAD4A200EA3B3009871D7 /* BoxNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = B4FCAD48200EA3B3009871D7 /* BoxNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4FCAD51200EA3C3009871D7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCAD50200EA3C3009871D7 /* Networking.swift */; };
-		B4FCAD8A200EB473009871D7 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FCAD89200EB473009871D7 /* CocoaAsyncSocket.framework */; };
 		B4FCAD8C200EB488009871D7 /* CocoaAsyncSocket.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = B4FCAD8B200EB488009871D7 /* CocoaAsyncSocket.framework.dSYM */; };
 		B4FCADB0200F6D77009871D7 /* BoxNetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FCADAF200F6D77009871D7 /* BoxNetworkingHelper.swift */; };
 /* End PBXBuildFile section */
@@ -75,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4FCAD8A200EB473009871D7 /* CocoaAsyncSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
