@@ -6,6 +6,11 @@
 //  Copyright © 2018 Eric Boxer. All rights reserved.
 //
 
+// ::::::::::::::::::::::::::::::::::::::
+//     Change Log: 2018-03-04 12:51:26
+//     Updated: Eric Boxer
+//     Notes: added deinit function
+// ::::::::::::::::::::::::::::::::::::::
 
 import Foundation
 import CocoaAsyncSocket
@@ -55,6 +60,10 @@ public class BoxNetworkingUDP: NSObject, GCDAsyncUdpSocketDelegate {
         }
         
         
+    }
+    
+    deinit {
+        self.socket?.close()
     }
     
     // MARK: Receiving Data
