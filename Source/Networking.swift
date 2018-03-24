@@ -58,8 +58,6 @@ public class BoxNetworkingUDP: NSObject, GCDAsyncUdpSocketDelegate {
         } catch let error {
             print (error)
         }
-        
-        
     }
     
     deinit {
