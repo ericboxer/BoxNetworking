@@ -6,6 +6,14 @@
 //  Copyright © 2018 Eric Boxer. All rights reserved.
 //
 
+
+
+// ::::::::::::::::::::::::::::::::::::::
+//     Change Log: 2018-03-24 12:24:29
+//     Updated: Eric Boxer
+//     Notes: Added public struct for IP address as its own type. For future use.
+// ::::::::::::::::::::::::::::::::::::::
+
 import Foundation
 
 public struct NetworkInterface {
@@ -17,4 +25,12 @@ public struct NetworkInterface {
         self.ipAddress = ipAddress
     }
     
+}
+
+public struct IPAddress {
+    public var ipAddress: String
+    
+    public init (ipAddress: String) {
+        self.ipAddress = ipAddress
+    }
 }
