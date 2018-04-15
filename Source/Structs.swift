@@ -27,9 +27,14 @@ public struct NetworkInterface {
     
 }
 
+
+
+/// A simple structure for an IP Address
 public struct IPAddress {
     public var ipAddress: String
     
+    
+    // TODO: Add validity checking.
     public init (ipAddress: String) {
         self.ipAddress = ipAddress
     }

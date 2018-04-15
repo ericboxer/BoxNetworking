@@ -49,8 +49,25 @@ public class BoxNetworkingHelpers {
         return interfaces
     }
     
+    /// Automatically converts data to a human readable String and removes trailing null characters.
+    ///
+    /// - Parameter data: Data, typically from a network packet.
+    /// - Returns: String representation of data.
     public static func dataToString(data: Data) -> String {
         return String(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!).removeNullCharacters()
+    }
+    
+    /// Checks to see if an IP addres valid
+    ///
+    /// - Parameter ipAddress: An IP address to test
+    /// - Returns: True if the IP adress is valid, false if it's not.
+    public static func isValidIPAddress(ipAddress: IPAddress) -> Bool{
+        // TODO: Write the function
+        // TODO: Make IPv4 and IPv6 compatible.
+        
+        
+        // TODO: Currently always returns true. Make it actually work.
+        return true
     }
     
 }

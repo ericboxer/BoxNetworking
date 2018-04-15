@@ -12,6 +12,12 @@
 //     Notes: added deinit function
 // ::::::::::::::::::::::::::::::::::::::
 
+// ::::::::::::::::::::::::::::::::::::::
+//     Change Log: 2018-03-24 12:48:39
+//     Updated: Eric Boxer
+//     Notes: Adding support for multicast
+// ::::::::::::::::::::::::::::::::::::::
+
 import Foundation
 import CocoaAsyncSocket
 
@@ -88,6 +94,34 @@ public class BoxNetworkingUDP: NSObject, GCDAsyncUdpSocketDelegate {
      */
     public func sendUDPData(message: Data) {
         socket?.send(message, toHost: self.listenIpAddress, port: self.sendPort, withTimeout: 4, tag: 0)
+    }
+    
+    // MARK: Multicast
+    public func joinMulticastGroup(multicastGroupAddress: IPAddress, interface: String = "") {
+
+        do {
+            if interface != "" {
+                try self.socket?.joinMulticastGroup(multicastGroupAddress.ipAddress, onInterface: interface)
+            } else {
+                try self.socket?.joinMulticastGroup(multicastGroupAddress.ipAddress)
+                
+            }
+        } catch {
+            print("cannot join multicast group")
+        }
+    }
+    
+    public func leaveMulticastGroup(multicastGroupAddress: IPAddress, interface: String = "") {
+        do {
+            if interface != "" {
+                try self.socket?.leaveMulticastGroup(multicastGroupAddress.ipAddress, onInterface: interface)
+            } else {
+                try self.socket?.leaveMulticastGroup(multicastGroupAddress.ipAddress)
+            }
+        } catch {
+            print("Cannot leave multicast address")
+        }
+        
     }
     
 }
