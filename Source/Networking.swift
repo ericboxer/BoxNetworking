@@ -25,6 +25,56 @@ public protocol BoxNetworkingUDPDelegate {
     func receiveData(data: Data, address: Data)
 }
 
+
+public protocol BoxNetworkingTCPDelegate {
+    func receiveData(data: Data, address: Data)
+}
+
+
+/**
+ 
+ */
+public class BoxNetworkingTCP: NSObject, GCDAsyncSocketDelegate {
+    var socket: GCDAsyncSocket?
+    public var ipAddress: String
+    public var networkInterface: String
+    var port: UInt16
+    var timeout: TimeInterval
+    var returnData: String? // Do I need this for TCP?
+    var socketQueue: DispatchQueue
+    public var boxNetworkingTCPDelegate: BoxNetworkingTCPDelegate?
+    
+    
+    public init(destinationIPAddress ipAddress:String, port: UInt16, networkInterface: String = "", timeout: TimeInterval = 1 ) {
+
+        self.ipAddress = ipAddress
+        self.networkInterface = networkInterface
+        self.port = port
+        self.timeout = timeout
+        self.returnData = nil
+        self.socketQueue = DispatchQueue.main
+        
+        super.init()
+        
+        self.socket = GCDAsyncSocket(delegate: self, delegateQueue: self.socketQueue)
+        
+        do {
+            if self.networkInterface != "" {
+                try self.socket?.connect(toHost: self.ipAddress, onPort: self.port, viaInterface: self.networkInterface, withTimeout:self.timeout)
+            } else {
+                try self.socket?.connect(toHost: self.ipAddress, onPort: self.port, withTimeout: self.timeout)
+            }
+        } catch let error {
+            print(error)
+        }
+    }
+    deinit {
+        self.socket?.disconnect()
+    }
+    
+    
+}
+
 public class BoxNetworkingUDP: NSObject, GCDAsyncUdpSocketDelegate {
     
     var socket: GCDAsyncUdpSocket?
