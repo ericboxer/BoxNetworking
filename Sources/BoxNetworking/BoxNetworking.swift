@@ -35,7 +35,7 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
     var incomingDataProcessor: NetworkingUDPDelegate?
 
     
-    init(onAddress networkInterface:String="", onPort bindPort:UInt16) {
+    public init(onAddress networkInterface:String="", onPort bindPort:UInt16) {
         self.networkInterface = networkInterface
         self.bindPort = bindPort
 
