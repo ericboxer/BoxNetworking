@@ -32,7 +32,8 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
     var networkInterface:String
     var bindPort:UInt16
     var socketQueue = DispatchQueue(label: "UDP_Listener_Queue")
-    var incomingDataProcessor: NetworkingUDPDelegate?
+    public var incomingDataProcessor: NetworkingUDPDelegate?
+
 
     
     public init(onAddress networkInterface:String="", onPort bindPort:UInt16) {
@@ -66,6 +67,8 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
             print (error)
         }
     }
+    
+    
 
     public func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         let hostAddress:String = GCDAsyncSocket.host(fromAddress: address)!
