@@ -58,7 +58,7 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
                 try self.socket?.bind(toPort: self.bindPort)
             }
         } catch let error {
-            print(error)
+            print("Error binding: \(error)")
         }
 
         do {
@@ -79,9 +79,9 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
     public func joinMulticastGroup(multicastGroupAddress:String, interface:String = "") {
         do {
             if interface != "" {
-                try self.socket?.joinMulticastGroup(multicastGroupAddress, onInterface: interface)
+                print( try self.socket?.joinMulticastGroup(multicastGroupAddress, onInterface: interface))
             } else {
-                try self.socket?.joinMulticastGroup(multicastGroupAddress)
+                print( try self.socket?.joinMulticastGroup(multicastGroupAddress))
             }
             
         } catch let error {
