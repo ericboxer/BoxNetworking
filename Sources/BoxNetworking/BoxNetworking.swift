@@ -28,7 +28,7 @@ public protocol NetworkingUDPDelegate {
 
 public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDelegate {
     
-    var socket:GCDAsyncUdpSocket?
+    public var socket:GCDAsyncUdpSocket?
     var networkInterface:String
     var bindPort:UInt16
     var socketQueue = DispatchQueue(label: "UDP_Listener_Queue")
@@ -83,6 +83,7 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
             } else {
                 print( try self.socket?.joinMulticastGroup(multicastGroupAddress))
             }
+            
             
         } catch let error {
             print(error)
