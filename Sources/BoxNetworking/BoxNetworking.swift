@@ -72,6 +72,32 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
         let hostPort:UInt16 = GCDAsyncSocket.port(fromAddress: address)
         incomingDataProcessor?.receiveData(data: data, address: hostAddress, port: hostPort)
     }
+    
+    public func joinMulticastGroup(multicastGroupAddress:String, interface:String = "") {
+        do {
+            if interface != "" {
+                try self.socket?.joinMulticastGroup(multicastGroupAddress, onInterface: interface)
+            } else {
+                try self.socket?.joinMulticastGroup(multicastGroupAddress)
+            }
+            
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    public func leaveMulticastGroup(multicastGroupAddress:String, interface:String=""){
+        do {
+            if interface != "" {
+                try self.socket?.leaveMulticastGroup(multicastGroupAddress, onInterface: interface)
+            } else {
+                try self.socket?.leaveMulticastGroup(multicastGroupAddress)
+            }
+            
+        } catch let error {
+            print(error)
+        }
+    }
 
 
 }
@@ -134,7 +160,8 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
 
     func sendUDP(message: String) {
         self.sendUDPData(message: message.data(using: String.Encoding.utf8)!)
-
     }
+    
+    
 
 }
