@@ -25,9 +25,24 @@ public protocol NetworkingUDPDelegate {
 }
 
 public struct MulticastAddress {
-    var address:String
-    var isActive:Bool = false
+    private var _address:String
+    
+    init(address:String) {
+        self._address = address
+    }
+    
+    public var address:String {
+        set(newVal) {
+            self._address = newVal
+        }
+        
+        get {
+            return self._address
+        }
+    }
 }
+
+
 
 public enum BoxNetowrkingReturn:String {
     case OK = "OK"
