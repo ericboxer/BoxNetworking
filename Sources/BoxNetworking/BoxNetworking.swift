@@ -24,18 +24,27 @@ public protocol NetworkingUDPDelegate {
     func receiveData(data:Data, address:String, port:UInt16)
 }
 
+public struct MulticastAddress {
+    var address:String
+    var isActive:Bool = false
+}
 
+public enum BoxNetowrkingReturn:String {
+    case OK = "OK"
+    case FAIL = "Failed"
+    case ERROR = "Error"
+}
 
 public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDelegate {
     
-    public var socket:GCDAsyncUdpSocket?
+    var socket:GCDAsyncUdpSocket?
     var networkInterface:String
     var bindPort:UInt16
     var socketQueue = DispatchQueue(label: "UDP_Listener_Queue")
-    public var incomingDataProcessor: NetworkingUDPDelegate?
+    var incomingDataHandler: NetworkingUDPDelegate?
+    var multicastGroups: [MulticastAddress] = []
 
 
-    
     public init(onAddress networkInterface:String="", onPort bindPort:UInt16) {
         self.networkInterface = networkInterface
         self.bindPort = bindPort
@@ -68,25 +77,47 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
         }
     }
     
-    
 
+    public func setIncomingDataHandler(to handler:NetworkingUDPDelegate){
+        self.incomingDataHandler = handler
+    }
+
+    public func addMulticastGroup(_ multicastGroup:MulticastAddress) -> BoxNetowrkingReturn{
+        
+        do {
+            if self.networkInterface != "" {
+                try self.joinMulticastGroup(multicastGroupAddress: multicastGroup.address, interface: self.networkInterface)
+            } else {
+                try self.joinMulticastGroup(multicastGroupAddress: multicastGroup.address)
+            }
+            self.multicastGroups.append(multicastGroup)
+            return BoxNetowrkingReturn.OK
+            
+        } catch {
+            return BoxNetowrkingReturn.ERROR
+        }
+    }
+    
+    
+    
     public func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         let hostAddress:String = GCDAsyncSocket.host(fromAddress: address)!
         let hostPort:UInt16 = GCDAsyncSocket.port(fromAddress: address)
-        incomingDataProcessor?.receiveData(data: data, address: hostAddress, port: hostPort)
+        incomingDataHandler?.receiveData(data: data, address: hostAddress, port: hostPort)
     }
     
-    public func joinMulticastGroup(multicastGroupAddress:String, interface:String = "") {
+    private func joinMulticastGroup(multicastGroupAddress:String, interface:String = "") throws {
         do {
             if interface != "" {
-                print( try self.socket?.joinMulticastGroup(multicastGroupAddress, onInterface: interface))
+                try self.socket?.joinMulticastGroup(multicastGroupAddress, onInterface: interface)
             } else {
-                print( try self.socket?.joinMulticastGroup(multicastGroupAddress))
+                try self.socket?.joinMulticastGroup(multicastGroupAddress)
             }
             
             
         } catch let error {
             print(error)
+            throw(error)
         }
     }
     
@@ -102,7 +133,18 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
             print(error)
         }
     }
+    
+    private func leaveAllMulticastGroups(){
+        for mcast in self.multicastGroups {
+            self.leaveMulticastGroup(multicastGroupAddress: mcast.address)
+        }
+    }
 
+    public func close() {
+        
+        self.leaveAllMulticastGroups()
+        self.socket?.close()
+    }
 
 }
 
@@ -156,8 +198,6 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
         self.socket?.close()
     }
 
-
-
     func sendUDPData(message: Data) {
         socket?.send(message, toHost: self.deviceIP, port: self.devicePort, withTimeout: 4, tag: 0)
     }
@@ -165,7 +205,5 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
     func sendUDP(message: String) {
         self.sendUDPData(message: message.data(using: String.Encoding.utf8)!)
     }
-    
-    
-
 }
+
