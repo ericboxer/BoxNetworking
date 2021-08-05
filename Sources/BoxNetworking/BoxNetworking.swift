@@ -27,7 +27,7 @@ public protocol NetworkingUDPDelegate {
 public struct MulticastAddress {
     private var _address:String
     
-    init(address:String) {
+    public init(address:String) {
         self._address = address
     }
     
