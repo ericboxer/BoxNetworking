@@ -31,7 +31,7 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
     ///   - devicePort: The Port of the location or device you are communicating with.
     ///   - networkInterface: The local interface (IPv4) you want to communicate on. Leave blank to auto select.
     ///   - bindPort: The local port you want to send from.
-    init(toIP ipAddress:String, toPort devicePort:UInt16, usingIP networkInterface: String = "", usingPort bindPort:UInt16) {
+    public init(toIP ipAddress:String, toPort devicePort:UInt16, usingIP networkInterface: String = "", usingPort bindPort:UInt16) {
         self.deviceIP = ipAddress
         self.networkInterface = networkInterface
         self.devicePort = devicePort
