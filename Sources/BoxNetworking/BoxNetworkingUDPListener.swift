@@ -1,21 +1,23 @@
-
-
-
 import Foundation
 import CocoaAsyncSocket
 
 /**
  A delegate protocol for handling incoming data from a socket
  - Parameters:
-    - data: That incoming data in raw Data format
-    - address: The source IP address
-    - port: The source Port
- - Returns: Void
+ - data: That incoming data in raw Data format
+ - address: The source IP address
+ - port: The source Port
  */
 public protocol NetworkingUDPDelegate {
+    /// Received Data Handler
+    /// - Parameters:
+    ///   - data: Socket Data
+    ///   - address: IP Address the Data originated from
+    ///   - port: Port the Data originated from.
     func receiveData(data:Data, address:String, port:UInt16)
 }
 
+// TODO: Make sure the Multicast Address is an actual Multicast
 public struct MulticastAddress {
     private var _address:String
     
@@ -27,7 +29,6 @@ public struct MulticastAddress {
         set(newVal) {
             self._address = newVal
         }
-        
         get {
             return self._address
         }
@@ -42,8 +43,16 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
     var socketQueue = DispatchQueue(label: "UDP_Listener_Queue")
     var incomingDataHandler: NetworkingUDPDelegate?
     var multicastGroups: [MulticastAddress] = []
+    
+    public override var description: String {
+        return "\(type(of: self)) - Listening on \(self.networkInterface):\(self.bindPort)"
+    }
 
-
+    
+    /// A UDP Listener or a specific port and optional interface. Do not specify the interface if using Multicast.
+    /// - Parameters:
+    ///   - networkInterface: The local interface to listen for Data on.
+    ///   - bindPort: The port to listen for Data on.
     public init(onAddress networkInterface:String="", onPort bindPort:UInt16) {
         self.networkInterface = networkInterface
         self.bindPort = bindPort
@@ -76,7 +85,13 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
         }
     }
     
-
+    
+    deinit{
+        self.close()
+    }
+    
+    /// Assign a class as to Handle and Process the incoming Data.
+    /// - Parameter handler: The name of the Class that handles the incoming Data.
     public func setIncomingDataHandler(to handler:NetworkingUDPDelegate){
         self.incomingDataHandler = handler
     }
@@ -107,7 +122,10 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
         }
     }
     
-    public func addMulticastGroup(_ multicastGroup:MulticastAddress) -> BoxNetowrkingReturn{
+    /// Add a Multicast group to listen to.
+    /// - Parameter multicastGroup: The Multicast Address to listen on
+    /// - Returns: Join status
+    public func addMulticastGroup(_ multicastGroup:MulticastAddress) -> BoxNetowrkingReturnStatus{
         
         do {
             if self.networkInterface != "" {
@@ -123,6 +141,10 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
         }
     }
     
+    /// Stops listening to a Multicast group.
+    /// - Parameters:
+    ///   - multicastGroupAddress: multicastGroupAddress description
+    ///   - interface: <#interface description#>
     public func leaveMulticastGroup(multicastGroupAddress:String, interface:String=""){
         do {
             if interface != "" {
@@ -136,9 +158,9 @@ public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDel
         }
     }
     
-    private func leaveAllMulticastGroups(){
-        for mcast in self.multicastGroups {
-            self.leaveMulticastGroup(multicastGroupAddress: mcast.address)
+    public func leaveAllMulticastGroups(){
+        for multicastGroup in self.multicastGroups {
+            self.leaveMulticastGroup(multicastGroupAddress: multicastGroup.address)
         }
     }
 

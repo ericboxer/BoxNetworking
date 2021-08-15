@@ -9,7 +9,6 @@ import Foundation
 import CocoaAsyncSocket
 
 
-
 public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
 
     var socket:GCDAsyncUdpSocket?
@@ -20,6 +19,9 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
     var socketQueue = DispatchQueue(label: "UDPNetworking")
 
 
+    public override var description: String{
+        return "\(type(of: self)) - Sending on \(self.networkInterface):\(self.bindPort)"
+    }
 
     var networkingUDPDelegate: NetworkingUDPDelegate?
 
@@ -67,17 +69,24 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
 
     
     
-    /// Sends UDP Data.
+    /// Sends a UDP Data message
     /// - Parameters:
-    ///   - message: Data to send.
-    ///   - toHost: The IP Address of the remote device or machine. If left blank it will use the IP Address from when the instance was created.
-    ///   - port: The Port of the remote device or machine. If left blank it will the Port from when the instace was created.
+    ///   - message: Data to send
+    ///   - toHost: The IP Address of the remote device or machine. If left blank it will use the IP Address from when the instance was created
+    ///   - port: The Port of the remote device or machine. If left blank it will the Port from when the instace was created
     public func sendUDPData(message: Data, toHost:String = "", port:UInt16 = 0 ) {
         socket?.send(message, toHost: (toHost == "" ? self.deviceIP : toHost), port: (port == 0 ? self.devicePort : port), withTimeout: 4, tag: 0)
     }
     
-    public func sendUDPString(message: String) {
-        self.sendUDPData(message: message.data(using: String.Encoding.utf8)!)
+    
+    
+    /// Sends a UDP String message
+    /// - Parameters:
+    ///   - message: String to send
+    ///   - toHost: The IP Address of the remote device or machine. If left blank it will use the IP Address from when the instance was created
+    ///   - port: The Port of the remote device or machine. If left blank it will the Port from when the instace was created
+    public func sendUDPString(message: String, toHost:String = "", port:UInt16 = 0 ) {
+        self.sendUDPData(message: message.data(using: String.Encoding.utf8)!, toHost: toHost, port: port)
         
         
     }

@@ -10,7 +10,7 @@ import Foundation
 
 
 /// BoxNetworking function returns
-public enum BoxNetowrkingReturn:String {
+public enum BoxNetowrkingReturnStatus:String {
     case OK = "OK"
     case FAIL = "Failed"
     case ERROR = "Error"
