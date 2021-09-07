@@ -35,7 +35,7 @@ public struct MulticastAddress {
     }
 }
 
-public class UDPListener: NSObject, GCDAsyncSocketDelegate, GCDAsyncUdpSocketDelegate {
+public class UDPListener: NSObject, GCDAsyncUdpSocketDelegate {
     
     var socket:GCDAsyncUdpSocket?
     var networkInterface:String

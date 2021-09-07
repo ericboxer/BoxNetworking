@@ -26,7 +26,6 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
     var networkingUDPDelegate: NetworkingUDPDelegate?
 
     
-    
     /// A UDP Sender Class
     /// - Parameters:
     ///   - ipAddress: The IP Address (IPv4) of the location or device you are communicating with.
