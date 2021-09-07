@@ -42,6 +42,7 @@ public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
             } else {
                 try self.socket?.connect(toHost: self.deviceIP, onPort: self.devicePort, viaInterface: self.networkInterface, withTimeout: self.timeoutInterval)
             }
+            print("connected!")
             
         } catch let error {
             print(error)
@@ -68,7 +69,8 @@ public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
         }
     
     public func sendData(message:Data) {
-        self.socket?.write(message, withTimeout: timeoutInterval, tag: 0)
+        self.socket?.write(message, withTimeout: self.timeoutInterval, tag: 0)
+        
     }
     
 }
