@@ -1,21 +1,6 @@
 import Foundation
 import CocoaAsyncSocket
 
-/**
- A delegate protocol for handling incoming data from a socket
- - Parameters:
- - data: That incoming data in raw Data format
- - address: The source IP address
- - port: The source Port
- */
-public protocol NetworkingUDPDelegate {
-    /// Received Data Handler
-    /// - Parameters:
-    ///   - data: Socket Data
-    ///   - address: IP Address the Data originated from
-    ///   - port: Port the Data originated from.
-    func receiveData(data:Data, address:String, port:UInt16)
-}
 
 // TODO: Make sure the Multicast Address is an actual Multicast
 public struct MulticastAddress {
@@ -125,7 +110,7 @@ public class UDPListener: NSObject, GCDAsyncUdpSocketDelegate {
     /// Add a Multicast group to listen to.
     /// - Parameter multicastGroup: The Multicast Address to listen on
     /// - Returns: Join status
-    public func addMulticastGroup(_ multicastGroup:MulticastAddress) -> BoxNetowrkingReturnStatus{
+    public func addMulticastGroup(_ multicastGroup:MulticastAddress) -> BoxNetworkingReturnStatus{
         
         do {
             if self.networkInterface != "" {
