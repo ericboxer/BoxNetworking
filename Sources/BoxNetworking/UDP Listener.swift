@@ -2,23 +2,6 @@ import Foundation
 import CocoaAsyncSocket
 
 
-// TODO: Make sure the Multicast Address is an actual Multicast
-public struct MulticastAddress {
-    private var _address:String
-    
-    public init(address:String) {
-        self._address = address
-    }
-    
-    public var address:String {
-        set(newVal) {
-            self._address = newVal
-        }
-        get {
-            return self._address
-        }
-    }
-}
 
 public class UDPListener: NSObject, GCDAsyncUdpSocketDelegate {
     
@@ -26,7 +9,7 @@ public class UDPListener: NSObject, GCDAsyncUdpSocketDelegate {
     var networkInterface:String
     var bindPort:UInt16
     var socketQueue = DispatchQueue(label: "UDP_Listener_Queue")
-    var incomingDataHandler: NetworkingUDPDelegate?
+    var incomingDataHandler: ReceiveDataDelegate?
     var multicastGroups: [MulticastAddress] = []
     
     public override var description: String {
@@ -77,7 +60,7 @@ public class UDPListener: NSObject, GCDAsyncUdpSocketDelegate {
     
     /// Assign a class as to Handle and Process the incoming Data.
     /// - Parameter handler: The name of the Class that handles the incoming Data.
-    public func setIncomingDataHandler(to handler:NetworkingUDPDelegate){
+    public func setIncomingDataHandler(to handler:ReceiveDataDelegate){
         self.incomingDataHandler = handler
     }
 

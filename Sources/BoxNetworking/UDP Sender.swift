@@ -23,7 +23,7 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
         return "\(type(of: self)) - Sending on \(self.networkInterface):\(self.bindPort)"
     }
 
-    var networkingUDPDelegate: NetworkingUDPDelegate?
+    var networkingUDPDelegate: ReceiveDataDelegate?
 
     
     /// A UDP Sender Class

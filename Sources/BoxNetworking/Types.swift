@@ -16,3 +16,24 @@ public enum BoxNetworkingReturnStatus:String {
     case ERROR = "Error"
     case MULTICAST_JOIN_ERROR = "Error joining multicast group"
 }
+
+
+
+
+// TODO: Make sure the Multicast Address is an actual Multicast
+public struct MulticastAddress {
+    private var _address:String
+    
+    public init(address:String) {
+        self._address = address
+    }
+    
+    public var address:String {
+        set(newVal) {
+            self._address = newVal
+        }
+        get {
+            return self._address
+        }
+    }
+}

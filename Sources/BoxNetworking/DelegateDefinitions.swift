@@ -9,6 +9,8 @@ import Foundation
 
 
 
+// TODO: Can I make this a single delegate? I think so....
+
 /**
  A delegate protocol for handling incoming data from a socket
  - Parameters:
@@ -16,7 +18,7 @@ import Foundation
  - address: The source IP address
  - port: The source Port
  */
-public protocol NetworkingUDPDelegate {
+public protocol ReceiveDataDelegate {
     /// Received Data Handler
     /// - Parameters:
     ///   - data: Socket Data
