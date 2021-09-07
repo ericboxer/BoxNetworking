@@ -64,11 +64,12 @@ public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
     
     public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         print(self.socket?.readData(toLength: 1024, withTimeout: 60.0, tag: 0))
-        
-        
-        
-        
+
         }
+    
+    public func sendData(message:Data) {
+        self.socket?.write(message, withTimeout: timeoutInterval, tag: 0)
+    }
     
 }
 
