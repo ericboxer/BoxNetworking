@@ -16,14 +16,14 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
     var networkInterface: String
     var bindPort: UInt16
     var devicePort:UInt16
-    var socketQueue = DispatchQueue(label: "UDPNetworking")
+    var socketQueue = DispatchQueue(label: BNDispatchQueues.UDP.rawValue)
 
 
     public override var description: String{
         return "\(type(of: self)) - Sending on \(self.networkInterface):\(self.bindPort)"
     }
 
-    var networkingUDPDelegate: ReceiveDataDelegate?
+    var networkingUDPDelegate: BNReceiveDataDelegate?
 
     
     /// A UDP Sender Class
@@ -50,7 +50,6 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
             print(error)
         }
 
-
         do {
             if self.networkInterface != "" {
                 try self.socket?.bind(toPort: self.bindPort, interface: self.networkInterface)
@@ -67,7 +66,6 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
     }
 
     
-    
     /// Sends a UDP Data message
     /// - Parameters:
     ///   - message: Data to send
@@ -77,8 +75,6 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
         socket?.send(message, toHost: (toHost == "" ? self.deviceIP : toHost), port: (port == 0 ? self.devicePort : port), withTimeout: 4, tag: 0)
     }
     
-    
-    
     /// Sends a UDP String message
     /// - Parameters:
     ///   - message: String to send
@@ -86,7 +82,5 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
     ///   - port: The Port of the remote device or machine. If left blank it will the Port from when the instace was created
     public func sendUDPString(message: String, toHost:String = "", port:UInt16 = 0 ) {
         self.sendUDPData(message: message.data(using: String.Encoding.utf8)!, toHost: toHost, port: port)
-        
-        
     }
 }

@@ -9,7 +9,7 @@ public class UDPListener: NSObject, GCDAsyncUdpSocketDelegate {
     var networkInterface:String
     var bindPort:UInt16
     var socketQueue = DispatchQueue(label: "UDP_Listener_Queue")
-    var incomingDataHandler: ReceiveDataDelegate?
+    var incomingDataHandler: BNReceiveDataDelegate?
     var multicastGroups: [MulticastAddress] = []
     
     public override var description: String {
@@ -60,7 +60,7 @@ public class UDPListener: NSObject, GCDAsyncUdpSocketDelegate {
     
     /// Assign a class as to Handle and Process the incoming Data.
     /// - Parameter handler: The name of the Class that handles the incoming Data.
-    public func setIncomingDataHandler(to handler:ReceiveDataDelegate){
+    public func setIncomingDataHandler(to handler:BNReceiveDataDelegate){
         self.incomingDataHandler = handler
     }
 
@@ -93,7 +93,7 @@ public class UDPListener: NSObject, GCDAsyncUdpSocketDelegate {
     /// Add a Multicast group to listen to.
     /// - Parameter multicastGroup: The Multicast Address to listen on
     /// - Returns: Join status
-    public func addMulticastGroup(_ multicastGroup:MulticastAddress) -> BoxNetworkingReturnStatus{
+    public func addMulticastGroup(_ multicastGroup:MulticastAddress) -> BNReturnStatus{
         
         do {
             if self.networkInterface != "" {
