@@ -17,10 +17,15 @@ public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
     var bindPort: UInt16
     var devicePort:UInt16
     var socketQueue = DispatchQueue(label: BNDispatchQueues.TCP.rawValue)
-    var incomingDataHandler: BNReceiveDataDelegate?
+
+    
     var timeoutInterval:TimeInterval
     
-    var tcpNetworkingDelegate:BNReceiveDataDelegate?
+    
+    // Delegate Assignments
+    var incomingDataHandler: BNReceiveDataDelegate?
+    var loggingDelegate: BNLoggingDelegate?
+    
     
     public init(toIP ipAddress:String, toPort devicePort:UInt16, usingIP networkInterface: String = "", usingPort bindPort:UInt16, timeout:TimeInterval = 1.0) {
         
@@ -79,13 +84,13 @@ public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
     
     
     public func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
-        
+        loggingDelegate?.log(logMessage: "Message sent", logLevel: .DEBUG)
     }
     
     public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         guard let er = err else {
             return
         }
-        print(er)
+        loggingDelegate?.log(logMessage: String(describing:er), logLevel: .ERROR)
     }
 }
