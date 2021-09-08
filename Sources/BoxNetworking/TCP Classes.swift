@@ -71,6 +71,10 @@ public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
         self.incomingDataHandler = handler
     }
     
+    public func setLogDelegate(to handler:BNLoggingDelegate){
+        self.loggingDelegate = handler
+    }
+    
     // MARK: Socket Functions
     // These functions are used by CocoaAsync to pass data along.
     
