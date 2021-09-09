@@ -77,6 +77,10 @@ public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
     public func setLogDelegate(to delegate:BNLoggingDelegate){
         self.loggingDelegate = delegate
     }
+
+    public func setLogLevel(to loglevel:BNLogLevels) {
+        self.logLevel = loglevel
+    }
     
     public func send(message:Data, tag:Int=0) {
         self.socket?.write(message, withTimeout: self.timeoutInterval, tag: tag)
@@ -109,11 +113,6 @@ public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
         }
         self.error(String(describing:error))
     }
-    
-    public func setLogLevel(to loglevel:BNLogLevels) {
-        self.logLevel = loglevel
-    }
-    
     
     
     // MARK: Private Functions
