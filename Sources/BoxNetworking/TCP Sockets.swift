@@ -11,10 +11,6 @@ import CocoaAsyncSocket
 
 public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
     
-    
-    // Public vars
-    
-    
     // Private vars
     
     var socket:GCDAsyncSocket?
@@ -166,3 +162,5 @@ public class TCPCLient:NSObject, GCDAsyncSocketDelegate{
     
     
 }
+
+
