@@ -5,19 +5,17 @@ Wrapper classes for the wonder [CocoaAsyncSocket Framework] to make life easier.
 ## Installation
 
 ### Swift Package Manager
+Include https://github.com/ericboxer/BoxNetworking.git using the master branch.
 
 ### Manually
+
+Copy the files to your  project I guess?
 
 ## Ussage
 
 ### General 
 
 The communications classes are broken up by their function. By themselves they don't really do much except handle the netowrk traffic. It is up to you provided a delegate class for handling data.
-
-```swift
-import BoxNetworking
-
-```
 
 ### UDP
 
@@ -39,6 +37,24 @@ sendString(message: "Hello to you too!", toHost:String = "10.0.1.101", port:UInt
 ```
 
 ### TCP
+
+TCP is broken into into **Clients** and **Servers**. Again they works pretty much as expected.
+
+``` swift
+
+import BoxNetworking
+
+
+// iAmAClient is a Client Class to a server at 10.0.1.100:6789. Connection is automatic.
+var iAmAClient = TCPCLient(toIP: "10.0.1.100", toPort: 6789, usingPort: 54545)
+
+// Send "Hello World" to the client
+iAmACLient.sendString(message: "Hello World", tag: 1)
+
+// Close the connection
+iAmCLient.close()
+
+```
 
 ### Logging
 
