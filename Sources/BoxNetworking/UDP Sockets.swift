@@ -30,7 +30,6 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
 
     var networkingUDPDelegate: BNReceiveDataDelegate?
     
-
     
     /// A UDP Sender Class
     /// - Parameters:
@@ -57,7 +56,6 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
         }
 
         do {
-            
             var conncetionLogMessage:String = ""
             if self.networkInterface != "" {
                 try self.socket?.bind(toPort: self.bindPort, interface: self.networkInterface)
@@ -76,7 +74,6 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
         self.close()
     }
 
-    
     // MARK: Public User Functions
     
     public func close() {
@@ -84,6 +81,16 @@ public class UDPSender: NSObject, GCDAsyncUdpSocketDelegate {
     }
     
     // These are functions exposed to the user
+
+    // Assign a class to delegate logging to.
+    /// - Parameter to: The logging delegate class
+    public func setLogDelegate(to delegate:BNLoggingDelegate){
+        self.loggingDelegate = delegate
+    }
+
+    public func setLogLevel(to loglevel:BNLogLevels) {
+        self.logLevel = loglevel
+    }
 
     /// Sends a UDP Data message
     /// - Parameters:
@@ -215,6 +222,16 @@ public class UDPListener: NSObject, GCDAsyncUdpSocketDelegate {
     public func close() {
         self.leaveAllMulticastGroups()
         self.socket?.close()
+    }
+
+    // Assign a class to delegate logging to.
+    /// - Parameter to: The logging delegate class
+    public func setLogDelegate(to delegate:BNLoggingDelegate){
+        self.loggingDelegate = delegate
+    }
+
+    public func setLogLevel(to loglevel:BNLogLevels) {
+        self.logLevel = loglevel
     }
     
     /// Assign a class as to Handle and Process the incoming Data.
